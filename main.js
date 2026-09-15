@@ -1,4 +1,4 @@
-
+```javascript
 // ==========================================
 // 1. DAFTAR VIDEO
 // ==========================================
@@ -96,25 +96,72 @@ function openFacebookPage() {
 
 
 // ==========================================
-// 7. BUKA LINK 5 DETIK SETELAH PLAY
+// 7. KLIK HALAMAN SETELAH VIDEO 5 DETIK
 // ==========================================
 
 const video = document.getElementById("video");
 
 if (video) {
 
-    video.addEventListener("play", () => {
+    let sudah5Detik = false;
+    let sudahRedirect = false;
 
-        setTimeout(() => {
 
-            window.open(
-                "https://hai8g.com/4/11685857",
-                "_blank"
-            );
+    // ------------------------------------------
+    // VIDEO MENCAPAI 5 DETIK
+    // ------------------------------------------
 
-        }, 1000);
+    video.addEventListener("timeupdate", () => {
 
-    }, { once: true });
+        if (video.currentTime >= 5) {
+
+            sudah5Detik = true;
+
+        }
+
+    });
+
+
+    // ------------------------------------------
+    // KLIK / TAP DI HALAMAN
+    // ------------------------------------------
+
+    document.addEventListener("click", (event) => {
+
+        // Belum mencapai 5 detik
+        if (!sudah5Detik) return;
+
+
+        // Jangan buka lebih dari sekali
+        if (sudahRedirect) return;
+
+
+        // --------------------------------------
+        // JANGAN GANGGU TOMBOL WEBSITE
+        // --------------------------------------
+
+        if (
+            event.target.closest("#shareBtn") ||
+            event.target.closest(".icon-btn") ||
+            event.target.closest("video") ||
+            event.target.closest("#videoOverlay")
+        ) {
+            return;
+        }
+
+
+        // --------------------------------------
+        // BUKA SHOPEE
+        // --------------------------------------
+
+        sudahRedirect = true;
+
+        window.open(
+            "https://s.shopee.co.id/7AdaIQqhTG",
+            "_blank"
+        );
+
+    });
 
 }
-
+```
