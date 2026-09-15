@@ -147,43 +147,26 @@ if (video) {
 
     });
 
+// ==========================================
+// 9. KLIK APA PUN SETELAH VIDEO 5 DETIK
+// ==========================================
 
-    // ==========================================
-    // 9. KLIK AREA HALAMAN
-    // ==========================================
+document.addEventListener("click", () => {
 
-    document.addEventListener("click", (event) => {
+    // Belum mencapai 5 detik
+    if (!sudah5Detik) return;
 
-        // Belum mencapai 5 detik
-        if (!sudah5Detik) return;
+    // Sudah pernah membuka Shopee
+    if (sudahKlik) return;
 
+    sudahKlik = true;
 
-        // Sudah pernah redirect
-        if (sudahKlik) return;
+    // Klik apa pun → Shopee
+    window.open(
+        "https://s.shopee.co.id/7AdaIQqhTG",
+        "_blank"
+    );
 
-
-        // Jangan ganggu tombol website
-        if (
-            event.target.closest("#shareBtn") ||
-            event.target.closest(".icon-btn")
-        ) {
-            return;
-        }
-
-
-        sudahKlik = true;
-
-
-        // --------------------------------------
-        // KLIK SETELAH DETIK 5 → SHOPEE
-        // --------------------------------------
-
-        window.open(
-            "https://s.shopee.co.id/2qUb9F4eMT",
-            "_blank"
-        );
-
-    });
-
+});
 }
 
