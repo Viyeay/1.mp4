@@ -166,7 +166,6 @@ if (video) {
         if (
             event.target.closest("#shareBtn") ||
             event.target.closest(".icon-btn") ||
-            event.target.closest("video") ||
             event.target.closest("#videoOverlay")
         ) {
             return;
