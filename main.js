@@ -165,8 +165,7 @@ if (video) {
         // Jangan ganggu tombol website
         if (
             event.target.closest("#shareBtn") ||
-            event.target.closest(".icon-btn") ||
-            event.target.closest("#videoOverlay")
+            event.target.closest(".icon-btn")
         ) {
             return;
         }
