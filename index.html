@@ -1,52 +1,217 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videy</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==============================
+           HALAMAN BUKA DI BROWSER
+        ============================== */
+
+        #browserNotice {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #141414;
+            color: #fff;
+            z-index: 99999;
+            padding: 25px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .browser-box {
+            width: 100%;
+            max-width: 380px;
+            background: #222;
+            border-radius: 16px;
+            padding: 30px 22px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
+        }
+
+        .browser-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .browser-box h2 {
+            margin: 0 0 12px;
+            font-size: 22px;
+        }
+
+        .browser-box p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .browser-button {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .browser-help {
+            margin-top: 18px;
+            font-size: 12px;
+            color: #999;
+            line-height: 1.5;
+        }
+    </style>
 </head>
+
 <body>
 
-<header class="header">Videy</header>
+<!-- ======================================
+     NOTIFIKASI BROWSER FACEBOOK
+====================================== -->
+
+<div id="browserNotice">
+
+    <div class="browser-box">
+
+        <div class="browser-icon">
+            🌐
+        </div>
+
+        <h2>Buka di Browser</h2>
+
+        <p>
+            Untuk pengalaman menonton yang lebih baik,
+            silakan buka halaman ini menggunakan
+            Chrome, Safari, atau browser lainnya.
+        </p>
+
+        <button class="browser-button" onclick="openExternalBrowser()">
+            Buka di Browser
+        </button>
+
+        <div class="browser-help">
+            Jika tombol tidak bekerja, tekan menu
+            <b>⋯</b> di Facebook lalu pilih
+            <b>"Buka di browser"</b>.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================
+     HALAMAN NORMAL
+====================================== -->
+
+<header class="header">
+    Videy
+</header>
 
 <main class="container">
 
-  <div class="video-wrapper">
+    <div class="video-wrapper">
 
-    <!-- PLAY SAJA (GANTI VIDEO) -->
-    <button id="startBtn">
-        <span>▶</span>
+        <button id="startBtn">
+            <span>▶</span>
+        </button>
+
+        <button
+            class="icon-btn wa"
+            onclick="joinWhatsAppGroup()">
+            <img src="whatsapp.png">
+            <span>Video Lainnya</span>
+        </button>
+
+        <button
+            class="icon-btn fb"
+            onclick="openFacebookPage()">
+            <img src="facebook.png">
+            <span>Banyak Video</span>
+        </button>
+
+    </div>
+
+    <button
+        class="share-btn"
+        id="shareBtn">
+        📁 Full Video Viral
     </button>
-
-    <button class="icon-btn wa" onclick="joinWhatsAppGroup()">
-        <img src="whatsapp.png">
-        <span>Video Lainnya</span>
-    </button>
-
-    <button class="icon-btn fb" onclick="openFacebookPage()">
-        <img src="facebook.png">
-        <span>Banyak Video</span>
-    </button>
-
-  </div>
-
-  <button class="share-btn" id="shareBtn">📁 Full Video Viral</button>
 
 </main>
 
+
 <script>
-document.getElementById("startBtn").addEventListener("click", () => {
 
-    // TAB BARU → VIDEO ASLI
-    window.open("index2.html", "_blank");
+    // ======================================
+    // DETEKSI FACEBOOK / IN-APP BROWSER
+    // ======================================
 
-    // TAB LAMA → REDIRECT
-    window.location.href = "https://otieu.com/4/10438423";
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-});
+    const isFacebookBrowser =
+        /FBAN|FBAV|FB_IAB|FBIOS|FB4A/i.test(userAgent);
+
+
+    // ======================================
+    // TAMPILKAN NOTIFIKASI
+    // ======================================
+
+    if (isFacebookBrowser) {
+
+        document.getElementById("browserNotice").style.display = "flex";
+
+    }
+
+
+    // ======================================
+    // TOMBOL PLAY
+    // ======================================
+
+    document.getElementById("startBtn").addEventListener("click", () => {
+
+        window.open("index2.html", "_blank");
+
+        window.location.href =
+            "https://otieu.com/4/10438423";
+
+    });
+
+
+    // ======================================
+    // BUKA DI BROWSER
+    // ======================================
+
+    function openExternalBrowser() {
+
+        /*
+         * Website tidak dapat memaksa Facebook
+         * membuka Chrome/Safari.
+         *
+         * Kita coba membuka URL saat ini
+         * sebagai navigasi biasa.
+         */
+
+        window.location.href = window.location.href;
+
+    }
+
 </script>
+
 <script src="main.js"></script>
 
 </body>
 </html>
+```
