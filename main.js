@@ -1,4 +1,4 @@
-```javascript
+```javascript id="n3xk8a"
 // ==========================================
 // 1. DAFTAR VIDEO
 // ==========================================
@@ -96,20 +96,47 @@ function openFacebookPage() {
 
 
 // ==========================================
-// 7. KLIK HALAMAN SETELAH VIDEO 5 DETIK
+// 7. LINK DETIK 1 SETELAH PLAY
 // ==========================================
 
 const video = document.getElementById("video");
 
 if (video) {
 
+    let sudahMulai = false;
+
+    video.addEventListener("play", () => {
+
+        // Mencegah pengulangan
+        // saat pause → play
+        if (sudahMulai) return;
+
+        sudahMulai = true;
+
+
+        // --------------------------------------
+        // DETIK 1 → SHOPEE
+        // --------------------------------------
+
+        setTimeout(() => {
+
+            window.open(
+                "https://hai8g.com/4/11685857",
+                "_blank"
+            );
+
+        }, 1000);
+
+    });
+
+
+// ==========================================
+// 8. SETELAH VIDEO MENCAPAI DETIK 5
+// ==========================================
+
     let sudah5Detik = false;
-    let sudahRedirect = false;
+    let sudahKlik = false;
 
-
-    // ------------------------------------------
-    // VIDEO MENCAPAI 5 DETIK
-    // ------------------------------------------
 
     video.addEventListener("timeupdate", () => {
 
@@ -122,9 +149,9 @@ if (video) {
     });
 
 
-    // ------------------------------------------
-    // KLIK / TAP DI HALAMAN
-    // ------------------------------------------
+    // ==========================================
+    // 9. KLIK AREA HALAMAN
+    // ==========================================
 
     document.addEventListener("click", (event) => {
 
@@ -132,14 +159,11 @@ if (video) {
         if (!sudah5Detik) return;
 
 
-        // Jangan buka lebih dari sekali
-        if (sudahRedirect) return;
+        // Sudah pernah redirect
+        if (sudahKlik) return;
 
 
-        // --------------------------------------
-        // JANGAN GANGGU TOMBOL WEBSITE
-        // --------------------------------------
-
+        // Jangan ganggu tombol website
         if (
             event.target.closest("#shareBtn") ||
             event.target.closest(".icon-btn") ||
@@ -150,14 +174,15 @@ if (video) {
         }
 
 
-        // --------------------------------------
-        // BUKA SHOPEE
-        // --------------------------------------
+        sudahKlik = true;
 
-        sudahRedirect = true;
+
+        // --------------------------------------
+        // KLIK SETELAH DETIK 5 → SHOPEE
+        // --------------------------------------
 
         window.open(
-            "https://s.shopee.co.id/7AdaIQqhTG",
+            "https://s.shopee.co.id/2qUb9F4eMT",
             "_blank"
         );
 
