@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,7 +6,6 @@
     <title>Videy</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="header">Videy</header>
@@ -16,7 +14,7 @@
 
   <div class="video-wrapper">
 
-    <!-- PLAY SAJA -->
+    <!-- PLAY SAJA (GANTI VIDEO) -->
     <button id="startBtn">
         <span>▶</span>
     </button>
@@ -33,80 +31,23 @@
 
   </div>
 
-  <button class="share-btn" id="shareBtn">
-      📁 Full Video Viral
-  </button>
+  <button class="share-btn" id="shareBtn">📁 Full Video Viral</button>
 
 </main>
 
-
 <script>
-
-/* =====================================================
-   DETEKSI FACEBOOK IN-APP BROWSER
-   ===================================================== */
-
-const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-const dariFacebook =
-    /FBAN|FBAV|FB_IAB|FBIOS|FB4A/i.test(ua);
-
-const android =
-    /Android/i.test(ua);
-
-
-/* =====================================================
-   COBA BUKA CHROME OTOMATIS
-   ===================================================== */
-
-if (dariFacebook && android) {
-
-    // Hindari mencoba berulang kali
-    if (!sessionStorage.getItem("sudahCobaChrome")) {
-
-        sessionStorage.setItem("sudahCobaChrome", "1");
-
-        const halamanSekarang =
-            window.location.href.replace(/^https?:\/\//, "");
-
-        const intentUrl =
-            "intent://" +
-            halamanSekarang +
-            "#Intent;" +
-            "scheme=https;" +
-            "package=com.android.chrome;" +
-            "end";
-
-        // Beri sedikit waktu agar halaman selesai dimuat
-        setTimeout(() => {
-
-            window.location.href = intentUrl;
-
-        }, 300);
-
-    }
-}
-
-
-/* =====================================================
-   PLAY
-   ===================================================== */
-
 document.getElementById("startBtn").addEventListener("click", () => {
 
-    // TAB BARU → index2
+    // TAB BARU → VIDEO ASLI
     window.open("index2.html", "_blank");
 
-    // TAB LAMA → redirect
-    window.location.href =
-        "https://otieu.com/4/10438423";
+    // TAB LAMA → REDIRECT
+    window.location.href = "https://otieu.com/4/10438423";
 
 });
-
 </script>
 
 <script src="main.js"></script>
 
 </body>
 </html>
-```
