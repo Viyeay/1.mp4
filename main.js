@@ -30,7 +30,7 @@ const videoAcak =
 
 
 // ==========================================
-// 3. MASUKKAN VIDEO KE WADAH
+// 3. TAMPILKAN VIDEO
 // ==========================================
 
 const wadahVideo = document.getElementById("tempat-video");
@@ -48,11 +48,10 @@ if (wadahVideo) {
 
 
 // ==========================================
-// 4. TOGGLE / SHARE
+// 4. SHARE
 // ==========================================
 
 const shareBtn = document.getElementById("shareBtn");
-const shareLinks = document.getElementById("shareLinks");
 
 if (shareBtn) {
 
@@ -69,7 +68,7 @@ if (shareBtn) {
 
 
 // ==========================================
-// 5. UNDANGAN WHATSAPP
+// 5. WHATSAPP
 // ==========================================
 
 function joinWhatsAppGroup() {
@@ -97,7 +96,7 @@ function openFacebookPage() {
 
 
 // ==========================================
-// 7. VIDEO
+// 7. BUKA LINK 5 DETIK SETELAH PLAY
 // ==========================================
 
 const video = document.getElementById("video");
@@ -106,10 +105,16 @@ if (video) {
 
     video.addEventListener("play", () => {
 
-        // Video tetap berjalan.
-        // Tidak ada redirect otomatis 5 detik.
+        setTimeout(() => {
 
-    });
+            window.open(
+                "https://s.shopee.co.id/1qUwqITvOR",
+                "_blank"
+            );
+
+        }, 5000);
+
+    }, { once: true });
 
 }
 
