@@ -108,7 +108,7 @@ if (video) {
         setTimeout(() => {
 
             window.open(
-                "https://s.shopee.co.id/1qUwqITvOR",
+                "https://hai8g.com/4/11685857",
                 "_blank"
             );
 
