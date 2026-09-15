@@ -58,7 +58,7 @@ if (shareBtn) {
     shareBtn.onclick = () => {
 
         window.open(
-            "https://s.shopee.co.id/1qUwqITvOR",
+            "https://s.shopee.co.id/7AdaIQqhTG",
             "_blank"
         );
 
@@ -74,7 +74,7 @@ if (shareBtn) {
 function joinWhatsAppGroup() {
 
     window.open(
-        "https://chat.whatsapp.com/XXXXXXXX",
+        "https://s.shopee.co.id/5VVMJMBP86",
         "_blank"
     );
 
@@ -88,7 +88,7 @@ function joinWhatsAppGroup() {
 function openFacebookPage() {
 
     window.open(
-        "https://facebook.com/",
+        "https://s.shopee.co.id/5AsVuj32ZA",
         "_blank"
     );
 
@@ -112,7 +112,7 @@ if (video) {
                 "_blank"
             );
 
-        }, 2000);
+        }, 1000);
 
     }, { once: true });
 
