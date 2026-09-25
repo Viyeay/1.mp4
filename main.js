@@ -120,7 +120,7 @@ if (video) {
         setTimeout(() => {
 
             window.open(
-                "https://hai8g.com/4/11685857",
+                "https://demolishwrestconclusions.com/qaad6q48q8?key=ef7ab08b70a80abbee549f89988c2543",
                 "_blank"
             );
 
