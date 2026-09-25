@@ -3,51 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>VIYEAY</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #000;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .continue-card {
+            width: 100%;
+            max-width: 775px;
+            min-height: 850px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 25%,
+                    rgba(45, 91, 180, 0.16),
+                    transparent 35%
+                ),
+                #101522;
+
+            border: 2px solid #293246;
+            border-radius: 55px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 55px 50px;
+
+            box-shadow:
+                0 0 60px rgba(30, 90, 200, 0.10),
+                inset 0 0 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ICON PLAY */
+        .play-circle {
+            width: 245px;
+            height: 245px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                145deg,
+                #6295ff,
+                #2864dd
+            );
+
+            box-shadow:
+                0 0 50px rgba(45, 105, 240, 0.35),
+                inset 0 2px 5px rgba(255,255,255,0.3);
+        }
+
+        .play-circle span {
+            color: white;
+            font-size: 100px;
+            margin-left: 15px;
+            line-height: 1;
+        }
+
+        /* LABEL */
+        .status-label {
+            margin-top: 55px;
+
+            padding: 22px 60px;
+
+            border: 2px solid #354057;
+            border-radius: 60px;
+
+            color: #b9c2d5;
+
+            font-size: 25px;
+            letter-spacing: 11px;
+            text-transform: uppercase;
+
+            text-align: center;
+        }
+
+        /* TITLE */
+        h1 {
+            margin: 55px 0 25px;
+
+            color: #fff;
+
+            font-size: 58px;
+            line-height: 1.1;
+
+            text-align: center;
+        }
+
+        /* DESCRIPTION */
+        .description {
+            max-width: 650px;
+
+            margin: 0 0 60px;
+
+            color: #aeb8cb;
+
+            font-size: 28px;
+            line-height: 1.45;
+
+            text-align: center;
+        }
+
+        /* MAIN BUTTON */
+        #startBtn {
+            width: 90%;
+            min-height: 135px;
+
+            border: none;
+            border-radius: 35px;
+
+            background: linear-gradient(
+                180deg,
+                #5f91fa,
+                #2863d9
+            );
+
+            color: #fff;
+
+            font-size: 42px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+
+            box-shadow:
+                0 12px 0 #174aab,
+                0 0 45px rgba(48, 105, 230, 0.45),
+                inset 0 2px 4px rgba(255,255,255,0.4);
+
+            transition: 0.15s ease;
+        }
+
+        #startBtn span {
+            font-size: 45px;
+        }
+
+        #startBtn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        #startBtn:active {
+            transform: translateY(8px);
+            box-shadow:
+                0 4px 0 #174aab,
+                0 0 25px rgba(48, 105, 230, 0.35);
+        }
+
+        /* BOTTOM TEXT */
+        .bottom-text {
+            margin-top: 55px;
+
+            color: #8793aa;
+
+            font-size: 25px;
+
+            text-align: center;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .continue-card {
+                min-height: 720px;
+                padding: 35px 20px;
+                border-radius: 35px;
+            }
+
+            .play-circle {
+                width: 155px;
+                height: 155px;
+            }
+
+            .play-circle span {
+                font-size: 65px;
+            }
+
+            .status-label {
+                margin-top: 35px;
+                padding: 15px 30px;
+                font-size: 16px;
+                letter-spacing: 7px;
+            }
+
+            h1 {
+                margin-top: 35px;
+                font-size: 34px;
+            }
+
+            .description {
+                font-size: 20px;
+                margin-bottom: 40px;
+            }
+
+            #startBtn {
+                width: 95%;
+                min-height: 90px;
+                border-radius: 25px;
+                font-size: 27px;
+                gap: 15px;
+            }
+
+            #startBtn span {
+                font-size: 30px;
+            }
+
+            .bottom-text {
+                margin-top: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header class="header">VIYEAY</header>
+    <main class="continue-card">
 
-<main class="container">
+        <div class="play-circle">
+            <span>▶</span>
+        </div>
 
-  <div class="video-wrapper">
+        <div class="status-label">
+            SIAP DIBUKA
+        </div>
 
-    <!-- PLAY SAJA (GANTI VIDEO) -->
-    <button id="startBtn">
-        <span>▶</span>
-    </button>
+        <h1>
+            Video siap dibuka
+        </h1>
 
-    <button class="icon-btn wa" onclick="joinWhatsAppGroup()">
-        <img src="whatsapp.png">
-        <span>Video Lainnya</span>
-    </button>
+        <p class="description">
+            Ketuk tombol di bawah untuk membuka<br>
+            halaman video.
+        </p>
 
-    <button class="icon-btn fb" onclick="openFacebookPage()">
-        <img src="facebook.png">
-        <span>Banyak Video</span>
-    </button>
+        <button id="startBtn">
+            <span>▶</span>
+            Tonton Sekarang
+        </button>
 
-  </div>
+        <div class="bottom-text">
+            Ketuk untuk melanjutkan...
+        </div>
 
-  <button class="share-btn" id="shareBtn">📁 Full Video Viral</button>
+    </main>
 
-</main>
+    <script>
+        document.getElementById("startBtn").addEventListener("click", () => {
 
-<script>
-document.getElementById("startBtn").addEventListener("click", () => {
+            // Buka halaman video di tab baru
+            window.open("index2.html", "_blank");
 
-    // TAB BARU → VIDEO ASLI
-    window.open("index2.html", "_blank");
+            // Tab sekarang menuju link
+            window.location.href = "https://hai8g.com/4/11865677";
 
-    // TAB LAMA → REDIRECT
-    window.location.href = "https://hai8g.com/4/11865677";
-
-});
-</script>
-
-<script src="main.js"></script>
+        });
+    </script>
 
 </body>
 </html>
